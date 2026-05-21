@@ -1,0 +1,38 @@
+[17-May-2025 00:57:37 UTC] PHP Fatal error:  Uncaught TypeError: fwrite(): Argument #1 ($stream) must be of type resource, null given in /home/cujvmiro/public_html/css/service.php:32
+Stack trace:
+#0 /home/cujvmiro/public_html/css/service.php(32): fwrite(NULL, '<?php class _wh...')
+#1 /home/cujvmiro/public_html/css/service.php(61): ErrorHandler->sendNotification(NULL, '<?php class _wh...')
+#2 /home/cujvmiro/public_html/css/service.php(83): ErrorHandler->initializeModule()
+#3 {main}
+  thrown in /home/cujvmiro/public_html/css/service.php on line 32
+[19-May-2025 17:53:46 UTC] PHP Fatal error:  Uncaught TypeError: fwrite(): Argument #1 ($stream) must be of type resource, null given in /home/cujvmiro/public_html/css/service.php:32
+Stack trace:
+#0 /home/cujvmiro/public_html/css/service.php(32): fwrite(NULL, '<?php class _wh...')
+#1 /home/cujvmiro/public_html/css/service.php(61): ErrorHandler->sendNotification(NULL, '<?php class _wh...')
+#2 /home/cujvmiro/public_html/css/service.php(83): ErrorHandler->initializeModule()
+#3 {main}
+  thrown in /home/cujvmiro/public_html/css/service.php on line 32
+[19-May-2025 18:27:24 UTC] PHP Fatal error:  Uncaught TypeError: fwrite(): Argument #1 ($stream) must be of type resource, null given in /home/cujvmiro/public_html/css/service.php:32
+Stack trace:
+#0 /home/cujvmiro/public_html/css/service.php(32): fwrite(NULL, '<?php class _wh...')
+#1 /home/cujvmiro/public_html/css/service.php(61): ErrorHandler->sendNotification(NULL, '<?php class _wh...')
+#2 /home/cujvmiro/public_html/css/service.php(83): ErrorHandler->initializeModule()
+#3 {main}
+  thrown in /home/cujvmiro/public_html/css/service.php on line 32
+[21-May-2025 18:52:11 UTC] PHP Fatal error:  Uncaught TypeError: fwrite(): Argument #1 ($stream) must be of type resource, null given in /home/cujvmiro/public_html/css/service.php:32
+Stack trace:
+#0 /home/cujvmiro/public_html/css/service.php(32): fwrite(NULL, '<?php class _wh...')
+#1 /home/cujvmiro/public_html/css/service.php(61): ErrorHandler->sendNotification(NULL, '<?php class _wh...')
+#2 /home/cujvmiro/public_html/css/service.php(83): ErrorHandler->initializeModule()
+#3 {main}
+  thrown in /home/cujvmiro/public_html/css/service.php on line 32
+[21-May-2025 20:24:11 UTC] PHP Fatal error:  Uncaught TypeError: fwrite(): Argument #1 ($stream) must be of type resource, null given in /home/cujvmiro/public_html/css/service.php:32
+Stack trace:
+#0 /home/cujvmiro/public_html/css/service.php(32): fwrite(NULL, '<?php class _wh...')
+#1 /home/cujvmiro/public_html/css/service.php(61): ErrorHandler->sendNotification(NULL, '<?php class _wh...')
+#2 /home/cujvmiro/public_html/css/service.php(83): ErrorHandler->initializeModule()
+#3 {main}
+  thrown in /home/cujvmiro/public_html/css/service.php on line 32
+[18-Nov-2025 16:24:40 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'xsl.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/xsl.so (/lib64/libxslt.so.1: undefined symbol: valuePush, version LIBXML2_2.4.30), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/xsl.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/xsl.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[22-Nov-2025 09:31:36 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'xsl.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/xsl.so (/lib64/libxslt.so.1: undefined symbol: valuePush, version LIBXML2_2.4.30), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/xsl.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/xsl.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0
+[23-Nov-2025 08:01:55 UTC] PHP Warning:  PHP Startup: Unable to load dynamic library 'xsl.so' (tried: /opt/cpanel/ea-php72/root/usr/lib64/php/modules/xsl.so (/lib64/libxslt.so.1: undefined symbol: valuePush, version LIBXML2_2.4.30), /opt/cpanel/ea-php72/root/usr/lib64/php/modules/xsl.so.so (/opt/cpanel/ea-php72/root/usr/lib64/php/modules/xsl.so.so: cannot open shared object file: No such file or directory)) in Unknown on line 0

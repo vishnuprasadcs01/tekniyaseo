@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QR Code Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .container {
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 500px;
+        padding: 30px;
+        text-align: center;
+      }
+
+      h1 {
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .input-group {
+        margin-bottom: 25px;
+      }
+
+      input {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+        transition: border-color 0.3s;
+      }
+
+      input:focus {
+        border-color: #6a11cb;
+        outline: none;
+      }
+
+      button {
+        background: #379b2b;
+        color: white;
+        border: none;
+        padding: 15px 25px;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        font-weight: 600;
+        margin: 10px 5px;
+      }
+
+      button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+      }
+
+      button:active {
+        transform: translateY(0);
+      }
+
+      #qrcode {
+        margin: 20px auto;
+        padding: 15px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 256px;
+      }
+
+      .download-btn {
+        background: linear-gradient(135deg, #4caf50 0%, #2e7d32 100%);
+      }
+
+      .action-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+
+      .placeholder {
+        color: #888;
+        font-style: italic;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 20px;
+        }
+
+        button {
+          width: 100%;
+          margin: 5px 0;
+        }
+
+        .action-buttons {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>QR Code Generator</h1>
+
+      <div class="input-group">
+        <input
+          type="text"
+          id="qr-text"
+          placeholder="Enter text or URL"
+          autocomplete="off"
+          value="https://maps.app.goo.gl/nK2e3Lt6LwnfhRuWA?g_st=ac"
+        />
+      </div>
+
+      <button id="generate-btn">Generate QR Code</button>
+
+      <div id="qrcode">
+        <p class="placeholder">Your QR code will appear here</p>
+      </div>
+
+      <div class="action-buttons">
+        <button id="download-btn" class="download-btn" disabled>
+          Download QR Code
+        </button>
+        <button id="clear-btn">Clear</button>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const qrText = document.getElementById("qr-text");
+        const generateBtn = document.getElementById("generate-btn");
+        const downloadBtn = document.getElementById("download-btn");
+        const clearBtn = document.getElementById("clear-btn");
+        const qrcodeDiv = document.getElementById("qrcode");
+
+        let qrCodeInstance = null;
+
+        // Initialize QR code generator
+        function generateQRCode(text) {
+          // Clear previous QR code
+          qrcodeDiv.innerHTML = "";
+
+          // Create new QR code
+          const typeNumber = 0; // Auto detect type
+          const errorCorrectionLevel = "H"; // High error correction
+          const qr = qrcode(typeNumber, errorCorrectionLevel);
+          qr.addData(text);
+          qr.make();
+
+          // Create and append QR code to div
+          qrcodeDiv.innerHTML = qr.createSvgTag({
+            scalable: true,
+            margin: 4,
+            color: "black",
+            background: "white",
+          });
+
+          // Store the SVG element for downloading
+          qrCodeInstance = qrcodeDiv.querySelector("svg");
+
+          // Enable download button
+          downloadBtn.disabled = false;
+        }
+
+        // Generate QR code on button click
+        generateBtn.addEventListener("click", function () {
+          const text = qrText.value.trim();
+
+          if (text === "") {
+            alert("Please enter some text or URL");
+            return;
+          }
+
+          generateQRCode(text);
+        });
+
+        // Generate QR code on Enter key press
+        qrText.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            generateBtn.click();
+          }
+        });
+
+        // Download QR code
+        downloadBtn.addEventListener("click", function () {
+          if (!qrCodeInstance) return;
+
+          // Convert SVG to data URL
+          const serializer = new XMLSerializer();
+          const source = serializer.serializeToString(qrCodeInstance);
+          const svgBlob = new Blob([source], {
+            type: "image/svg+xml;charset=utf-8",
+          });
+          const url = URL.createObjectURL(svgBlob);
+
+          const link = document.createElement("a");
+          link.download = "qrcode.svg";
+          link.href = url;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          URL.revokeObjectURL(url);
+        });
+
+        // Clear all
+        clearBtn.addEventListener("click", function () {
+          qrText.value = "";
+          qrcodeDiv.innerHTML =
+            '<p class="placeholder">Your QR code will appear here</p>';
+          downloadBtn.disabled = true;
+          qrCodeInstance = null;
+        });
+      });
+    </script>
+  </body>
+</html>
