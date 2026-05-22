@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Google Tag Manager -->
@@ -68,6 +68,70 @@
 
     <link rel="stylesheet" href="./css/style.css" />
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Blog",
+            "@id": "https://tekniya.com/blogs.html#blog",
+            "url": "https://tekniya.com/blogs.html",
+            "name": "Tekniya Blog",
+            "description": "Insights on ERP, cybersecurity, digital marketing, Microsoft 365, web development, and IT solutions from Tekniya.",
+            "publisher": { "@id": "https://tekniya.com/#organization" },
+            "inLanguage": "en",
+            "blogPost": [
+              {
+                "@type": "BlogPosting",
+                "headline": "Empowering Vision With a Leading Integrated Digital Solutions Agency",
+                "url": "https://tekniya.com/blog1.html",
+                "image": "https://tekniya.com/img/blog_1.webp"
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "Enhance Your Brand With Digital Marketing and Software Solutions",
+                "url": "https://tekniya.com/blog2.html",
+                "image": "https://tekniya.com/img/blog_2.webp"
+              },
+              {
+                "@type": "BlogPosting",
+                "headline": "Aramco CCC Certification: The Essential Guide to Compliance",
+                "url": "https://tekniya.com/blog3.html",
+                "image": "https://tekniya.com/img/blog_3.webp"
+              }
+            ]
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://tekniya.com/blogs.html#webpage",
+            "url": "https://tekniya.com/blogs.html",
+            "name": "Tekniya Blogs | IT Solutions & Digital Insights",
+            "isPartOf": { "@id": "https://tekniya.com/#website" },
+            "mainEntity": { "@id": "https://tekniya.com/blogs.html#blog" },
+            "inLanguage": "en",
+            "breadcrumb": { "@id": "https://tekniya.com/blogs.html#breadcrumb" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "@id": "https://tekniya.com/blogs.html#breadcrumb",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://tekniya.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Blogs",
+                "item": "https://tekniya.com/blogs.html"
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
 
   <body>
